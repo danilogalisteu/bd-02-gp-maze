@@ -19,7 +19,7 @@ class Maze():
         self.cell_size_x = cell_size_x
         self.cell_size_y = cell_size_y
         self._win = window
-        self._cells = [[None for i in range(self.num_cols)] for j in range(self.num_rows)]
+        self._cells = [[None for j in range(self.num_rows)] for i in range(self.num_cols)]
         self._create_cells()
 
     def _create_cells(self):
