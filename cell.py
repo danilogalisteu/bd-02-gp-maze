@@ -4,7 +4,7 @@ from graphics import Point, Line
 
 
 class Cell():
-    def __init__(self, x1, y1, x2, y2, window):
+    def __init__(self, x1, y1, x2, y2, window=None):
         self._xt = min(x1, x2)
         self._xb = max(x1, x2)
         self._xc = (x1 + x2) / 2
@@ -18,10 +18,14 @@ class Cell():
         self.has_left_wall = True
 
     def draw(self, wall_color="black"):
+        if self._win is None:
+            return
+
         ptl = Point(self._xt, self._yl)
         ptr = Point(self._xt, self._yr)
         pbr = Point(self._xb, self._yr)
         pbl = Point(self._xb, self._yl)
+
         if self.has_top_wall:
             self._win.draw_line(Line(ptl, ptr), wall_color)
         if self.has_right_wall:
@@ -32,6 +36,9 @@ class Cell():
             self._win.draw_line(Line(pbl, ptl), wall_color)
 
     def draw_move(self, to_cell, undo=False):
+        if self._win is None:
+            return
+
         p1 = Point(self._xc, self._yc)
         p2 = Point(to_cell._xc, to_cell._yc)
 
