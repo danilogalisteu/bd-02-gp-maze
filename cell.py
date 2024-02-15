@@ -5,11 +5,11 @@ from graphics import Point, Line
 
 class Cell():
     def __init__(self, x1, y1, x2, y2, window=None):
-        self._xt = min(x1, x2)
-        self._xb = max(x1, x2)
+        self._xl = min(x1, x2)
+        self._xr = max(x1, x2)
         self._xc = (x1 + x2) / 2
-        self._yl = min(y1, y2)
-        self._yr = max(y1, y2)
+        self._yt = min(y1, y2)
+        self._yb = max(y1, y2)
         self._yc = (y1 + y2) / 2
         self._win = window
         self.has_top_wall = True
@@ -17,14 +17,14 @@ class Cell():
         self.has_bottom_wall = True
         self.has_left_wall = True
 
-    def draw(self, wall_color="black", open_color="white"):
+    def draw(self, wall_color="black", open_color="#d9d9d9"):
         if self._win is None:
             return
 
-        ptl = Point(self._xt, self._yl)
-        ptr = Point(self._xt, self._yr)
-        pbr = Point(self._xb, self._yr)
-        pbl = Point(self._xb, self._yl)
+        ptl = Point(self._xl, self._yt)
+        ptr = Point(self._xr, self._yt)
+        pbr = Point(self._xr, self._yb)
+        pbl = Point(self._xl, self._yb)
 
         if self.has_top_wall:
             self._win.draw_line(Line(ptl, ptr), wall_color)
