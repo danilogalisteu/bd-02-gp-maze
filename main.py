@@ -1,5 +1,5 @@
 
-from graphics import Window
+from window import Window
 from maze import Maze
 
 
