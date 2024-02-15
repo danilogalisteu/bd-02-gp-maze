@@ -55,4 +55,8 @@ c4.has_right_wall = False
 c4.has_left_wall = False
 c4.draw()
 
+c1.draw_move(c2)
+
+c3.draw_move(c4, undo=True)
+
 win.wait_for_close()
