@@ -17,7 +17,7 @@ class Cell():
         self.has_bottom_wall = True
         self.has_left_wall = True
 
-    def draw(self, wall_color="black"):
+    def draw(self, wall_color="black", open_color="white"):
         if self._win is None:
             return
 
@@ -28,12 +28,20 @@ class Cell():
 
         if self.has_top_wall:
             self._win.draw_line(Line(ptl, ptr), wall_color)
+        else:
+            self._win.draw_line(Line(ptl, ptr), open_color)
         if self.has_right_wall:
             self._win.draw_line(Line(ptr, pbr), wall_color)
+        else:
+            self._win.draw_line(Line(ptr, pbr), open_color)
         if self.has_bottom_wall:
             self._win.draw_line(Line(pbr, pbl), wall_color)
+        else:
+            self._win.draw_line(Line(pbr, pbl), open_color)
         if self.has_left_wall:
             self._win.draw_line(Line(pbl, ptl), wall_color)
+        else:
+            self._win.draw_line(Line(pbl, ptl), open_color)
 
     def draw_move(self, to_cell, undo=False):
         if self._win is None:
