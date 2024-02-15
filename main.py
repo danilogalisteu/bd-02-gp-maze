@@ -1,6 +1,7 @@
 
 from tkinter import Tk, Canvas
-from graphics import Point, Line, Cell
+from graphics import Point, Line
+from cell import Cell
 
 
 
