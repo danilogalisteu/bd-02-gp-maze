@@ -86,6 +86,7 @@ class Maze():
 
             if not to_visit:
                 self._cells[i][j].draw()
+                self._animate()
                 return
 
             to_next = to_visit[random.randrange(len(to_visit))]
@@ -103,6 +104,7 @@ class Maze():
                 self._cells[i][j+1].has_top_wall = False
 
             self._cells[i][j].draw()
+            self._animate()
             self._break_walls_r(to_next[1], to_next[2])
 
     def _reset_cells_visited(self):
