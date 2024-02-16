@@ -47,7 +47,7 @@ class Cell():
     def draw_move(self, to_cell, undo=False):
         if self._win is None:
             return
-
+        
         p1 = Point(self._xc, self._yc)
         p2 = Point(to_cell._xc, to_cell._yc)
 
