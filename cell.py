@@ -16,6 +16,7 @@ class Cell():
         self.has_right_wall = True
         self.has_bottom_wall = True
         self.has_left_wall = True
+        self.visited = False
 
     def draw(self, wall_color="black", open_color="#d9d9d9"):
         if self._win is None:
